@@ -84,6 +84,10 @@ At Collab Cubicles, our open desk plan starts at ₹4,999/month inclusive of WiF
   },
 };
 
+export async function generateStaticParams() {
+  return Object.keys(posts).map((slug) => ({ slug }));
+}
+
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
   const { slug } = await params;
   const post = posts[slug];
